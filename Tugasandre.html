@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #EDEDED;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 360px;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            background: #FFDD00;
+            top: 0;
+            left: 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            z-index: -1;
+        }
+
+        .background-bottom {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            background: #FFDD00;
+            bottom: 0;
+            left: 0;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            z-index: -1;
+        }
+
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            color: black;
+            width: 100%;
+        }
+
+        .burger-menu {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .search-add {
+            display: flex;
+            gap: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        .profile {
+            width: 70%;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 19px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+.photo {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    margin: 0 auto;
+    background-image: url('saske.jpg'); 
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #FFDD00;
+    transform: rotate(90deg);
+}
+
+
+        .name {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .bio {
+            font-size: 12px;
+            color: #666;
+            margin: 5px 10px;
+        }
+
+        .contact-btn {
+            background-color: #FFDD00;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        
+        .portfolio {
+            width: 80%;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 25px auto;
+        }
+
+        .portfolio-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .hexagon {
+            width: 40px;
+            height: 40px;
+            background-color: #FFDD00;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            margin-right: 10px;
+        }
+
+        .text {
+            font-size: 14px;
+            color: #333;
+        }
+
+       
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            font-size: 20px;
+            color: black;
+        }
+        .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Sidebar tersembunyi di luar layar */
+    width: 250px;
+    height: 100%;
+    background: #FFDD00;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: block;
+}
+
+.sidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.burger {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="background"></div>
+        <div class="background-bottom"></div>
+
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="toggleSidebar()">✖</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</div>
+
+        <nav class="navbar">
+            <div onclick="toggleSidebar()" class="burger-menu">&#9776;</div>
+            <div class="search-add">
+                <div class="search">&#128269;</div>
+                <div class="add">+</div>
+            </div>
+        </nav>
+
+      
+        <div class="profile">
+            <div class="photo"></div>
+            <div class="name">uciha sasuke</div>
+            <div class="bio">ini adalah tugas dari bang andreas untuk membuktikan bahwa saya sudah bisa bang!.</div>
+            <button class="contact-btn">Contact</button>
+        </div>
+
+
+        <div class="portfolio">
+            <div class="portfolio-title">Portfolio</div>
+            <div class="portfolio-item">
+                <div class="hexagon"></div>
+                <div class="text">memiliki kebencian di atas rata-rata!</div>
+            </div>
+            <div class="portfolio-item">
+                <div class="hexagon"></div>
+                <div class="text">memiliki mata sharinggan dan susanoo</div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div style="color:white;">&#9733;</div>
+            <div style="color:white;">&#10084;</div>
+            <div style="color:white;">&#9881;</div>
+        </div>
+    </div>
+    <script>
+      
+    function toggleSidebar() {
+        var sidebar = document.getElementById("sidebar");
+        if (sidebar.style.left === "-250px") {
+            sidebar.style.left = "0";
+        } else {
+            sidebar.style.left = "-250px";
+        }
+    }
+
+
+    </script>
+</body>
+</html>
